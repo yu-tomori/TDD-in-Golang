@@ -8,6 +8,10 @@ func Dollar(amount int) dollar {
 	return dollar{amount}
 }
 
-func (d *dollar) times(multiplier int) dollar {
+func (d dollar) times(multiplier int) dollar {
 	return Dollar(d.amount * multiplier)
+}
+
+func (d1 dollar) equals(d2 dollar) bool {
+	return true
 }

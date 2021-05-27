@@ -16,3 +16,9 @@ func TestMoneyMultiplication(t *testing.T) {
 		t.Errorf("product.amount should be %d", 15)
 	}
 }
+
+func TestMoneyEquality(t *testing.T) {
+	if !Dollar(5).equals(Dollar(5)) {
+		t.Errorf("dollar equivalence is lost")
+	}
+}
