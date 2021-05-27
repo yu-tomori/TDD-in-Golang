@@ -7,3 +7,5 @@
 - how should we do rounding.
 - ~~equals()~~
 - hashCode()
+- equals() with null.
+- equals() with the other objects.
