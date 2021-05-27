@@ -9,3 +9,4 @@
 - hashCode()
 - equals() with null.
 - equals() with the other objects.
+- 5CHF * 2 = 10 CHF
