@@ -10,4 +10,9 @@ func TestMoneyMultiplication(t *testing.T) {
 	if 10 != five.amount {
 		t.Errorf("five.amount should be %d", 10)
 	}
+
+	five.times(3)
+	if 15 != five.amount {
+		t.Errorf("five.amount should be %d", 15)
+	}
 }
