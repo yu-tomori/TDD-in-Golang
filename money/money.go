@@ -8,5 +8,6 @@ func Dollar(amount int) dollar {
 	return dollar{amount}
 }
 
-func (d dollar) times(multiplier int) {
+func (d *dollar) times(multiplier int) {
+	d.amount = d.amount * multiplier
 }
