@@ -22,7 +22,7 @@ func TestFrancMultiplication(t *testing.T) {
 	}
 
 	if Franc(15) != five.times(3) {
-		t.Errorf("product.amount should be Franc(15)")
+		t.Errorf("Franc(5).times(3) should be Franc(15)")
 	}
 }
 
