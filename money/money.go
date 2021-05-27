@@ -13,5 +13,5 @@ func (d dollar) times(multiplier int) dollar {
 }
 
 func (d1 dollar) equals(d2 dollar) bool {
-	return true
+	return d1.amount == d2.amount
 }
