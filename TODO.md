@@ -10,3 +10,6 @@
 - equals() with null.
 - equals() with the other objects.
 - ~~5CHF * 2 = 10 CHF~~
+- overlaps between Dollar and Franc
+- ~~generalization of equals~~
+- generalization of times

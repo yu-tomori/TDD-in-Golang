@@ -34,4 +34,13 @@ func TestMoneyEquality(t *testing.T) {
 	if Dollar(5).equals(Dollar(6)) {
 		t.Errorf("dollar equivalence is lost")
 	}
+
+	if !Franc(5).equals(Franc(5)) {
+		t.Errorf("franc equivalence is lost")
+	}
+
+	if Franc(5).equals(Franc(6)) {
+		t.Errorf("franc equivalence is lost")
+	}
+
 }
