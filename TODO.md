@@ -13,3 +13,4 @@
 - overlaps between Dollar and Franc
 - ~~generalization of equals~~
 - generalization of times
+- compare franc to dollar
