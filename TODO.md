@@ -14,3 +14,5 @@
 - ~~generalization of equals~~
 - generalization of times
 - ~~compare franc to dollar~~
+- should I remove TestFrancMultiplication?
+- introduce the concept "currency"

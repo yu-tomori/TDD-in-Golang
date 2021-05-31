@@ -32,7 +32,7 @@ type dollar struct {
 }
 
 func Dollar(amount int) Money {
-	return Money{"Dollar", amount}
+	return Money{"USD", amount}
 }
 
 // for currency interface
@@ -57,5 +57,5 @@ func (f franc) name() string {
 }
 
 func Franc(amount int) Money {
-	return Money{"Franc", amount}
+	return Money{"CHF", amount}
 }

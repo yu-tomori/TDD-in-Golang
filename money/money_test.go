@@ -15,6 +15,16 @@ func TestMoneyMultiplication(t *testing.T) {
 	}
 }
 
+func TestMoneyCurrency(t *testing.T) {
+	if "USD" != Dollar(1).currency() {
+		t.Errorf("Dollar's currency should be USD")
+	}
+
+	if "CHF" != Franc(1).currency() {
+		t.Errorf("Franc's currency should be USD")
+	}
+}
+
 func TestFrancMultiplication(t *testing.T) {
 	five := Franc(5)
 	if Franc(10) != five.Times(2) {
