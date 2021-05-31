@@ -25,17 +25,6 @@ func TestMoneyCurrency(t *testing.T) {
 	}
 }
 
-func TestFrancMultiplication(t *testing.T) {
-	five := Franc(5)
-	if Franc(10) != five.Times(2) {
-		t.Errorf("Franc(5).times(2) should be Franc(10)")
-	}
-
-	if Franc(15) != five.Times(3) {
-		t.Errorf("Franc(5).times(3) should be Franc(15)")
-	}
-}
-
 func TestMoneyEquality(t *testing.T) {
 	if !Dollar(5).Equals(Dollar(5)) {
 		t.Errorf("dollar equivalence is lost")
@@ -43,14 +32,6 @@ func TestMoneyEquality(t *testing.T) {
 
 	if Dollar(5).Equals(Dollar(6)) {
 		t.Errorf("dollar equivalence is lost")
-	}
-
-	if !Franc(5).Equals(Franc(5)) {
-		t.Errorf("franc equivalence is lost")
-	}
-
-	if Franc(5).Equals(Franc(6)) {
-		t.Errorf("franc equivalence is lost")
 	}
 
 	if Dollar(5).Equals(Franc(5)) {
