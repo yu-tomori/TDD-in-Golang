@@ -1,12 +1,24 @@
 package money
 
-type money struct {
+type Money struct {
 	unit   string
 	amount int
 }
 
-func (m money) equals(c currency) bool {
+func (m Money) Equals(c currency) bool {
 	return m.amount == c.quantity() && m.unit == c.name()
+}
+
+func (m Money) Times(multiplier int) Money {
+	return Money{unit: m.unit, amount: m.amount * multiplier}
+}
+
+func (m Money) name() string {
+	return m.unit
+}
+
+func (m Money) quantity() int {
+	return m.amount
 }
 
 type currency interface {
@@ -16,11 +28,11 @@ type currency interface {
 
 // Dollar currency
 type dollar struct {
-	money
+	Money
 }
 
-func Dollar(amount int) dollar {
-	return dollar{money{"Dollar", amount}}
+func Dollar(amount int) Money {
+	return Money{"Dollar", amount}
 }
 
 // for currency interface
@@ -31,13 +43,9 @@ func (d dollar) name() string {
 	return d.unit
 }
 
-func (d dollar) times(multiplier int) dollar {
-	return Dollar(d.amount * multiplier)
-}
-
 // Franc currency
 type franc struct {
-	money
+	Money
 }
 
 // for currency interface
@@ -48,10 +56,6 @@ func (f franc) name() string {
 	return f.unit
 }
 
-func Franc(amount int) franc {
-	return franc{money{"Franc", amount}}
-}
-
-func (f franc) times(multiplier int) franc {
-	return Franc(f.amount * multiplier)
+func Franc(amount int) Money {
+	return Money{"Franc", amount}
 }
