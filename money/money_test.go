@@ -16,11 +16,11 @@ func TestMoneyMultiplication(t *testing.T) {
 }
 
 func TestMoneyCurrency(t *testing.T) {
-	if "USD" != Dollar(1).currency() {
+	if "USD" != Dollar(1).name() {
 		t.Errorf("Dollar's currency should be USD")
 	}
 
-	if "CHF" != Franc(1).currency() {
+	if "CHF" != Franc(1).name() {
 		t.Errorf("Franc's currency should be USD")
 	}
 }

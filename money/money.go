@@ -26,34 +26,8 @@ type currency interface {
 	name() string
 }
 
-// Dollar currency
-type dollar struct {
-	Money
-}
-
 func Dollar(amount int) Money {
 	return Money{"USD", amount}
-}
-
-// for currency interface
-func (d dollar) quantity() int {
-	return d.amount
-}
-func (d dollar) name() string {
-	return d.unit
-}
-
-// Franc currency
-type franc struct {
-	Money
-}
-
-// for currency interface
-func (f franc) quantity() int {
-	return f.amount
-}
-func (f franc) name() string {
-	return f.unit
 }
 
 func Franc(amount int) Money {
