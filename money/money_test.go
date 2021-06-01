@@ -51,6 +51,13 @@ func TestMoneyReduceSum(t *testing.T) {
 	}
 }
 
+func TestMoneyReduceMoney(t *testing.T) {
+	result := Bank{}.Reduce(Dollar(1), "USD")
+	if Dollar(1) != result {
+		t.Errorf("Reduced Money should be same Money")
+	}
+}
+
 func TestMoneyCurrency(t *testing.T) {
 	if "USD" != Dollar(1).currency() {
 		t.Errorf("Dollar's currency should be USD")

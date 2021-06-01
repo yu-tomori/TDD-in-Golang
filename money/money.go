@@ -25,6 +25,10 @@ func (m Money) quantity() int {
 	return m.amount
 }
 
+func (m Money) reduce(to string) Money {
+	return m
+}
+
 type money interface {
 	quantity() int
 	currency() string
