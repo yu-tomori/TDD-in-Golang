@@ -4,5 +4,7 @@ type Bank struct {
 }
 
 func (b Bank) Reduce(source Expression, to string) Money {
-	return Money{unit: "USD", amount: 10}
+	s, _ := source.(sum)
+	amount := s.augend.amount + s.addend.amount
+	return Money{unit: to, amount: amount}
 }

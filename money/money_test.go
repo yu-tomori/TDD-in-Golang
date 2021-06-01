@@ -24,6 +24,33 @@ func TestMoneySimpleAddition(t *testing.T) {
 	}
 }
 
+func TestMoneyPlusReturnsSum(t *testing.T) {
+	var five Money = Dollar(10)
+	var result Expression = five.Plus(five)
+	s, ok := result.(sum)
+
+	if !ok {
+		t.Errorf("underlying type of result should be %s", "sum")
+	}
+
+	if five != s.augend {
+		t.Errorf("sum.%s doesn't work well", "augend")
+	}
+
+	if five != s.addend {
+		t.Errorf("sum.%s doesn't work well", "addend")
+	}
+}
+
+func TestMoneyReduceSum(t *testing.T) {
+	var s Expression = Sum(Dollar(3), Dollar(4))
+	var result Money = Bank{}.Reduce(s, "USD")
+
+	if Dollar(7) != result {
+		t.Errorf("3$ + 4$ should be 7$")
+	}
+}
+
 func TestMoneyCurrency(t *testing.T) {
 	if "USD" != Dollar(1).currency() {
 		t.Errorf("Dollar's currency should be USD")
