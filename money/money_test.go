@@ -15,6 +15,12 @@ func TestMoneyMultiplication(t *testing.T) {
 	}
 }
 
+func TestMoneySimpleAddition(t *testing.T) {
+	if Dollar(5).Plus(Dollar(5)) != Dollar(10) {
+		t.Error("$5 + $5 should be $10")
+	}
+}
+
 func TestMoneyCurrency(t *testing.T) {
 	if "USD" != Dollar(1).currency() {
 		t.Errorf("Dollar's currency should be USD")
