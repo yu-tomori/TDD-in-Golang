@@ -16,8 +16,11 @@ func TestMoneyMultiplication(t *testing.T) {
 }
 
 func TestMoneySimpleAddition(t *testing.T) {
-	if Dollar(5).Plus(Dollar(5)) != Dollar(10) {
-		t.Error("$5 + $5 should be $10")
+	five := Dollar(5)
+	var sum Expression = five.Plus(five)
+	reduced := Bank{}.Reduce(sum, "USD")
+	if Dollar(10) != reduced {
+		t.Errorf("10$ should be %v", reduced)
 	}
 }
 

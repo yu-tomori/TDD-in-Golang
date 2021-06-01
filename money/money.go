@@ -9,7 +9,7 @@ func (m Money) Equals(c money) bool {
 	return m.amount == c.quantity() && m.unit == c.currency()
 }
 
-func (m Money) Plus(c money) Money {
+func (m Money) Plus(c money) Expression {
 	return Money{unit: m.unit, amount: m.amount + c.quantity()}
 }
 
