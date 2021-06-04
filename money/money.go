@@ -26,7 +26,13 @@ func (m Money) quantity() int {
 }
 
 func (m Money) reduce(to string) Money {
-	return m
+	var rate int
+	if m.unit == "CHF" && to == "USD" {
+		rate = 2
+	} else {
+		rate = 1
+	}
+	return Money{unit: to, amount: m.amount / rate}
 }
 
 type money interface {

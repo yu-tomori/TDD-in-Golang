@@ -81,3 +81,12 @@ func TestMoneyEquality(t *testing.T) {
 		t.Errorf("dollar(5) doesn't equal to franc(5)")
 	}
 }
+
+func TestMoneyReduceMoneyDifferentCurrency(t *testing.T) {
+	bank := Bank{}
+	bank.AddRate("CHF", "USD", 2)
+	result := bank.Reduce(Franc(2), "USD")
+	if Dollar(1) != result {
+		t.Errorf("exchange between currencies failed: result %v", result)
+	}
+}
