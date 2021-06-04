@@ -25,14 +25,9 @@ func (m Money) quantity() int {
 	return m.amount
 }
 
-func (m Money) reduce(to string) Money {
-	var rate int
-	if m.unit == "CHF" && to == "USD" {
-		rate = 2
-	} else {
-		rate = 1
-	}
-	return Money{unit: to, amount: m.amount / rate}
+func (m Money) reduce(b bank, to string) Money {
+	return Money{unit: to,
+		amount: m.amount / b.Rate(m.unit, to)}
 }
 
 type money interface {
