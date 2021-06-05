@@ -9,11 +9,11 @@ func (m Money) Equals(c money) bool {
 	return m.amount == c.quantity() && m.unit == c.currency()
 }
 
-func (augend Money) Plus(addend Money) Expression {
+func (augend Money) Plus(addend Expression) Expression {
 	return Sum(augend, addend)
 }
 
-func (m Money) Times(multiplier int) Money {
+func (m Money) Times(multiplier int) Expression {
 	return Money{unit: m.unit, amount: m.amount * multiplier}
 }
 

@@ -98,6 +98,17 @@ func TestMoneyReduceMoneyDifferentCurrency(t *testing.T) {
 	}
 }
 
+func TestMoneyMixedAddition(t *testing.T) {
+	var fiveBucks Expression = Dollar(5)
+	var tenFrans Expression = Franc(10)
+	bank := Bank()
+	bank.AddRate("CHF", "USD", 2)
+	result := bank.Reduce(fiveBucks.Plus(tenFrans), "USD")
+	if Dollar(10) != result {
+		t.Errorf("Mixed addition failed: result %v", result)
+	}
+}
+
 func TestArrayEquality(t *testing.T) {
 	a1 := [2]string{"ABC", "EFG"}
 	a2 := [2]string{"ABC", "EFG"}
