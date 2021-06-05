@@ -2,6 +2,7 @@ package money
 
 type Expression interface {
 	Plus(Expression) Expression
+	Times(int) Expression
 	reduce(bank, string) Money
 }
 
@@ -15,7 +16,12 @@ func Sum(augend, addend Expression) sum {
 }
 
 func (s sum) Plus(exp Expression) Expression {
-	return nil
+	return Sum(s, exp)
+}
+
+func (s sum) Times(multiplier int) Expression {
+	return Sum(s.augend.Times(multiplier),
+		s.addend.Times(multiplier))
 }
 
 func (s sum) reduce(b bank, to string) Money {

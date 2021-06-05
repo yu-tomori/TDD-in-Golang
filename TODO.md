@@ -6,5 +6,5 @@
 - ~~Bank.Reduce(Money), Money is passed as argument case~~
 - ~~convert Money, and then calculate it.~~
 - ~~Reduce(Bank, string)~~
-- Sum.Plus
-- Expression.times
+- ~~Sum.Plus~~
+- ~~Expression.times~~

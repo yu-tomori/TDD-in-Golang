@@ -109,6 +109,37 @@ func TestMoneyMixedAddition(t *testing.T) {
 	}
 }
 
+func TestMoneySumPlusMoney(t *testing.T) {
+	var fiveBucks Expression = Dollar(5)
+	var tenFranc Expression = Franc(10)
+	bank := Bank()
+	bank.AddRate("CHF", "USD", 2)
+	var sum Expression = Sum(fiveBucks, tenFranc).Plus(fiveBucks)
+	result := bank.Reduce(sum, "USD")
+	if Dollar(15) != result {
+		t.Errorf("(a + b) + c failed: result %v", result)
+	}
+}
+
+func TestMoneySumTimes(t *testing.T) {
+	var fiveBucks Expression = Dollar(5)
+	var tenFranc Expression = Franc(10)
+	bank := Bank()
+	bank.AddRate("CHF", "USD", 2)
+	var sum Expression = Sum(fiveBucks, tenFranc).Times(2)
+	result := bank.Reduce(sum, "USD")
+	if Dollar(20) != result {
+		t.Errorf("(a + b) * 2 failed: result %v", result)
+	}
+}
+
+// func TestMoneyPlusSameCurrencyReturnsMoney(t *testing.T) {
+// 	var s Expression = Dollar(1).Plus(Dollar(1))
+// 	if _, ok := s.(Money); !ok {
+// 		t.Error("$5 + $5 should be of underlying Money type")
+// 	}
+// }
+
 func TestArrayEquality(t *testing.T) {
 	a1 := [2]string{"ABC", "EFG"}
 	a2 := [2]string{"ABC", "EFG"}
